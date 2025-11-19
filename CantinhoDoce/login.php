@@ -31,6 +31,84 @@ if ($_SERVER['REQUEST_METHOD']  == 'POST'){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css\style-login.css">
   </head>
+  <style>
+          @keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.LOGIN {
+    width: 450px;
+    height: 450px;
+    background-color: #fad0d0;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    box-shadow: 4px 4px 10px #D17777;
+
+
+    /* AQUI a animação */
+    animation: aparecer 0.8s ease-out;
+}
+        form{
+            display: block;
+            box-sizing: border-box;
+            padding: 40px;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            flex-direction: column;
+            display: flex;
+            gap: 5px;
+        }
+        h1{
+            font-size: 25px;
+            font-weight: normal;
+            text-shadow: #fffbf5;
+            margin-bottom: 60pxS;
+        }
+        label{
+          color: rgba(0,0,0,0.603);
+          text-transform: uppercase;
+          font-size: 15px;
+          letter-spacing: 2px;
+          padding-left: 0px;
+        }
+
+        input{
+          background-color: #f4eeee;
+          height: 40px;
+          line-height: 40px;
+          border-radius: 10px;
+          border: none;
+          margin-bottom: 20px;
+        }
+
+
+        button{
+          font-size: 14px;
+          background-color: #D17777;
+          height: 40px;
+          line-height: 40px;
+          border-radius: 10px;
+          border: none;
+          margin: 10px 0px;
+        }
+
+        a{
+          color: #D17777;
+        }
+  </style>
   
   <body style= "background-image: url(imagens/CantinhoDoce.png);">
 
@@ -48,7 +126,8 @@ if ($_SERVER['REQUEST_METHOD']  == 'POST'){
                     <label>Senha</label>
                     <input type="password" name="Senha" class="form-control" required>
                     <button>LOGIN</button>
-                    <p><a href="esqueci-senha.php">Esqueci minha senha</a><p>
+                    <a href="registrar.php">Cadastrar</a>
+                    <br><a href="esqueci-senha.php">Esqueci minha senha</a>
                 </form>
             </div>
           </div>
