@@ -512,6 +512,35 @@ if (!empty($searchTerm)) {
     <div class="header-left">
         <div class="logo">Cantinho Doce</div>
     </div>
+
+    <div id="sideMenu" class="side-menu">
+    <h2>Cantinho Doce</h2>
+    <ul>
+      <li>Contato</li>
+      <li>Instagram</li>
+      <li>Whatsapp</li>
+      <li>E-mail</li>
+      <li>Dúvidas</li>
+      <li>
+        Pagamento
+        <ul class="submenu">
+          <li>PIX</li>
+          <li>Cartão de Crédito</li>
+          <li>Cartão de Débito</li>
+          <li>Dinheiro</li>
+        </ul>
+      </li>
+      <li>
+        Entrega
+        <ul class="submenu">
+          <li>Motoboy</li>
+          <li>Retirada</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="overlay" onclick="toggleMenu()"></div>
+
     <a href="pagina_inicial.php">Home</a>
     <form action="produtos.php" method="get" class="search-bar">
         <button type="submit" aria-label="Pesquisar">
@@ -873,6 +902,11 @@ enviarComentarioBtn.addEventListener('click', () => {
   // DEBUG: mostra erros no console caso algo falhe cedo
   console.log('produtos.js: inicializado. Carrinho carregado com', cart.length, 'itens.');
 });
+
+function toggleMenu() {
+       document.body.classList.toggle('menu-open');
+   }
+   document.querySelector('.menu-icon').addEventListener('click', toggleMenu);
 </script>
 
 <!-- Modal Detalhes do Produto -->
