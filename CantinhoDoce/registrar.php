@@ -22,19 +22,33 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <title>Cantinho Doce</title>
     <link href="cantinhodoce.css">
     <style>
-        .LOGIN{
-            width: 400px;
-            height: 500px;
-            background-color: #fad0d0;
-            box-shadow: rgba(0,0,0,0.603);
-            border-radius: 20px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            text-align: center;
-        }
+      @keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.LOGIN {
+    width: 400px;
+    height: 500px;
+    background-color: #fad0d0;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    box-shadow: 4px 4px 10px #D17777
+
+    /* AQUI a animação */
+    animation: aparecer 0.8s ease-out;
+}
 
         form{
             display: block;
@@ -79,6 +93,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
           border-radius: 10px;
           border: none;
           margin: 10px 0px;
+        }
+
+        a{
+          color: #D17777;
         }
     </style>
   </head>
