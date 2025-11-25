@@ -65,6 +65,7 @@
        padding: 3rem 2rem;
        text-align: center;
        margin-top: -100px;
+       box-shadow: 0 0 2px rgba(0,0,0,0.2);
      }
 
      .main-banner h1 {
@@ -95,24 +96,78 @@
       margin-top: 20px
     }
 
-     .categories {
-      padding: 2rem;
-      transition: all 0.3s ease;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-      height: 80px;
-      width: 175px;
-      background-color: #ffb5b5;
-      color: black;
-      padding: 1rem 2rem;
-      border-radius: 20px;
-      font-weight: bold;
-      font-family: 'Chonburi', fantasy
-      font-color: rgb(255, 255, 255);
-      font-size: 1.3rem;
-      border: none;
-      cursor: pointer;
-      margin-right: 30px;
-    }
+/* From Uiverse.io by Madflows */ 
+button {
+ position: relative;
+ display: inline-block;
+ cursor: pointer;
+ outline: none;
+ border: 0;
+ vertical-align: middle;
+ text-decoration: none;
+ font-family: inherit;
+ font-size: 15px;
+ height: 85px;
+ width: 180px;
+}
+
+button.categories {
+ font-weight: 600;
+ color: #382b22;
+ text-transform: uppercase;
+ padding: 1.25em 2em;
+ background: #ffe0e0;
+ border: 2px solid #b18597;
+ border-radius: 0.75em;
+ -webkit-transform-style: preserve-3d;
+ transform-style: preserve-3d;
+ -webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+ transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.categories::before {
+ position: absolute;
+ content: '';
+ width: 100%;
+ height: 100%;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: #f9c4d2;
+ border-radius: inherit;
+ -webkit-box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+ box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+ -webkit-transform: translate3d(0, 0.75em, -1em);
+ transform: translate3d(0, 0.75em, -1em);
+ transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.categories:hover {
+ background: #ffe9e9;
+ -webkit-transform: translate(0, 0.25em);
+ transform: translate(0, 0.25em);
+}
+
+button.categories:hover::before {
+ -webkit-box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+ box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+ -webkit-transform: translate3d(0, 0.5em, -1em);
+ transform: translate3d(0, 0.5em, -1em);
+}
+
+button.categories:active {
+ background: #ffe9e9;
+ -webkit-transform: translate(0em, 0.75em);
+ transform: translate(0em, 0.75em);
+}
+
+button.categories:active::before {
+ -webkit-box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+ box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+ -webkit-transform: translate3d(0, 0, -1em);
+ transform: translate3d(0, 0, -1em);
+}
 
     .categories:hover {
       transform: translateY(-8px) scale(1.05); /* aumenta levemente o botão */
@@ -137,34 +192,57 @@
     }
 
 
-     .carousel {
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       gap: 1rem;
-       padding: 2rem;
-       position: relative;
-       overflow-x: auto;
-       max-width: 1000px;
-       margin: 0 auto;
-       overscroll-behavior-x: contain;
-       scroll-snap-type: x mandatory;
-     }
+    .carousel-container {
+    position: relative;
+    width: 95%;
+    margin: 100px auto 0 auto;  /* desce o carrossel */
+    overflow: hidden;
+    padding: 15px 0;
+}
 
-     .carousel-container {
-       display: flex;
-       transition: transform 0.5s ease;
-       gap: 1.2rem;
-       border: 5px;
-       scroll-snap-align: center;
-     }
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
 
-     .carousel img {
-       width: 250px;
-       height: 300px;
-       border-radius: 20px;
-       object-fit: cover;
-     }
+.carousel img {
+    width: 230px;       /* TAMANHO DA IMAGEM */
+    height: 230px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-right: 25px; /* espaçamento entre as imagens */
+}
+
+/* Botões */
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff7b7b;
+    color: white;
+    border: none;
+    font-size: 35px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.nav:hover {
+    opacity: 1;
+}
+
+.prev {
+    left: -10px;
+}
+
+.next {
+    right: -10px;
+}
+
 
      .side-menu {
        position: fixed;
@@ -384,22 +462,33 @@
     <p class="price">Pedidos a partir de R$15,00</p>
   </section>
 
-  <div class="container-botoes">
+<br><br><br><div class="container-botoes">
     <a href="produtos.php?categoria=doces"><button class="categories">DOCES</button></a>
     <a href="produtos.php?categoria=salgados"><button class="categories">SALGADOS</button></a>
     <a href="produtos.php?categoria=bebidas"><button class="categories">BEBIDAS</button></a>
 </div>
 
-  <section class="carousel">
-    <div class="carousel-container">
-      <img src="imagens/Imagem do WhatsApp de 2025-05-27 à(s) 09.14.21_e0480e23.jpg" alt="Açai">
-      <img src="imagens/Imagem do WhatsApp de 2025-05-27 à(s) 09.14.20_00b51bc1.jpg" alt="Brownie">
-      <img src="imagens/Imagem do WhatsApp de 2025-05-27 à(s) 09.14.17_282bdbf6.jpg" alt="Pastel Assado">
-      <img src="imagens\Quais_são_os_melhores_acompanhamentos_para_açai-1024x559.png.webp" alt="Pastel Assado">
-      <img src="imagens/Imagem-ilustrativa-de-bolo-de-cenoura.webp" alt="Pastel Assado">
-      <img src="imagens\download.jpg">
+<div class="carousel-container">
+    <button class="nav prev">&#10094;</button>
+
+    <div class="carousel">
+        <img src="imagens\download.jpg" alt="">
+        <img src="imagens\Imagem do WhatsApp de 2025-05-27 à(s) 09.14.17_282bdbf6.jpg" alt="">
+        <img src="imagens\Quais_são_os_melhores_acompanhamentos_para_açai-1024x559.png.webp" alt="">
+        <img src="imagens\Imagem do WhatsApp de 2025-05-27 à(s) 09.14.21_e0480e23.jpg" alt="">
+        <img src="imagens\Imagem-ilustrativa-de-bolo-de-cenoura.webp" alt="">
+        <img src="imagens\uploads6841826072508_Imagem do WhatsApp de 2025-05-27 à(s) 09.14.19_7acc6e57.jpg" alt="">
+        <img src="uploads/download.jpeg" alt="">
+        <img src="uploads/download (1).jpeg" alt="">
+        <img src="uploads/download (2).jpeg" alt="">
+        <img src="uploads/download (3).jpeg" alt="">
+        <img src="uploads/download (4).jpeg" alt="">
+        <img src="uploads/images.jpeg" alt="">
     </div>
-  </section>
+
+    <button class="nav next">&#10095;</button>
+</div>
+
 
   <div class="background-pattern"></div>
 
@@ -451,6 +540,11 @@
           <li>Retirada</li>
         </ul>
       </li>
+    </ul>
+    <li>
+      ADM
+      <ul class="submenu">
+        <li><a href="painel-usuario.php" target= "_blank" >banco de dados</a></li>
     </ul>
   </div>
   <div class="overlay" onclick="toggleMenu()"></div>
@@ -523,6 +617,36 @@ function toggleMenu() {
    document.querySelector('.cart-icon').addEventListener('click', toggleCarrinho);
 
    renderizarCarrinho();
+
+   const carousel = document.querySelector(".carousel");
+const images = document.querySelectorAll(".carousel img");
+const imgWidth = 260 + 25; // largura da imagem + margem direita
+const visibleImages = 3;   // QUANTAS IMAGENS MOSTRAR
+let currentIndex = 0;
+
+// quantos "cliques" possíveis existem
+const maxIndex = Math.ceil(images.length / visibleImages) - 1;
+
+function updateCarousel() {
+    const offset = -(imgWidth * visibleImages) * currentIndex;
+    carousel.style.transform = `translateX(${offset}px)`;
+}
+
+document.querySelector(".next").onclick = () => {
+    if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateCarousel();
+    }
+};
+
+document.querySelector(".prev").onclick = () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+    }
+};
+
+
   </script>
 </body>
 </html>
