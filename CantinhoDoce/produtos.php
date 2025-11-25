@@ -27,6 +27,22 @@ if (!empty($searchTerm)) {
     $sql = "SELECT * FROM produtos";
     $resultado = mysqli_query($conexao, $sql);
 }
+
+
+// Recebe categoria da URL
+$categoria = isset($_GET['categoria']) ? $_GET['categoria'] : 'todos';
+
+if ($categoria !== 'todos') {
+    $sql = "SELECT * FROM produtos WHERE categoria = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $categoria);
+    mysqli_stmt_execute($stmt);
+    $resultado = mysqli_stmt_get_result($stmt);
+} else {
+    // Caso selecione "todos"
+    $sql = "SELECT * FROM produtos";
+    $resultado = mysqli_query($conexao, $sql);
+}
 ?>
 
 <!DOCTYPE html>
@@ -561,11 +577,11 @@ if (!empty($searchTerm)) {
     <div class="category-filter sidebar">
       <label for="category">Categorias</label>
       <select id="category" name="category">
-        <option value="todos">Todos</option>
-        <option value="salgados">Salgados</option>
-        <option value="doces">Doces</option>
-        <option value="bebidas">Bebidas</option>
-        <option value="outros">Outros</option>
+        <option value="todos"   <?= $categoria == 'todos' ? 'selected' : '' ?>>Todos</option>
+        <option value="salgados" <?= $categoria == 'salgados' ? 'selected' : '' ?>>Salgados</option>
+        <option value="doces"    <?= $categoria == 'doces' ? 'selected' : '' ?>>Doces</option>
+        <option value="bebidas"  <?= $categoria == 'bebidas' ? 'selected' : '' ?>>Bebidas</option>
+        <option value="outros"   <?= $categoria == 'outros' ? 'selected' : '' ?>>Outros</option>
       </select>
     </div>
 
@@ -907,6 +923,12 @@ function toggleMenu() {
        document.body.classList.toggle('menu-open');
    }
    document.querySelector('.menu-icon').addEventListener('click', toggleMenu);
+
+
+document.getElementById("category").addEventListener("change", function() {
+    const categoria = this.value;
+    window.location.href = "produtos.php?categoria=" + categoria;
+});
 </script>
 
 <!-- Modal Detalhes do Produto -->
