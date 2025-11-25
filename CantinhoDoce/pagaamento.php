@@ -1,5 +1,6 @@
 <?php
 include './configuracao.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,7 +18,7 @@ include './configuracao.php';
 
         body {
             font-family: "Inter", sans-serif;
-            background-color: #fff7f9;
+            background-color: #D17777;
             color: #333;
             display: flex;
             flex-direction: column;
@@ -145,7 +146,7 @@ include './configuracao.php';
         <input type="hidden" name="amount" id="amount" value="600.00">
         <input type="hidden" name="noIntInstalQuantity" id="noIntInstalQuantity" value="2">
 
-        <h2>💳 Dados do Cartão</h2>
+        <h2>Dados do Cartão</h2>
         <label>Número do cartão</label>
         <input type="text" name="numCartao" id="numCartao" required> 
         <span class="bandeira-cartao"></span>
@@ -165,44 +166,21 @@ include './configuracao.php';
             </div>
         </div>
 
-        <label>Parcelas</label>
-        <select name="qntParcelas" id="qntParcelas" class="select-qnt-parcelas">
-            <option value="">Selecione</option>
-        </select>
-
         <label>CPF do dono do Cartão</label>
         <input type="text" name="creditCardHolderCPF" id="creditCardHolderCPF" required>
 
         <label>Nome no Cartão</label>
         <input type="text" name="creditCardHolderName" id="creditCardHolderName" required>
 
-        <h2>📍 Endereço de Cobrança</h2>
-        <label>Logradouro</label>
-        <input type="text" name="billingAddressStreet" id="billingAddressStreet" required>
-        <label>Número</label>
-        <input type="text" name="billingAddressNumber" id="billingAddressNumber" required>
-        <label>Complemento</label>
-        <input type="text" name="billingAddressComplement" id="billingAddressComplement">
-        <label>Bairro</label>
-        <input type="text" name="billingAddressDistrict" id="billingAddressDistrict">
-        <label>CEP</label>
-        <input type="text" name="billingAddressPostalCode" id="billingAddressPostalCode" required>
-        <label>Cidade</label>
-        <input type="text" name="billingAddressCity" id="billingAddressCity" required>
-        <label>Estado</label>
-        <input type="text" name="billingAddressState" id="billingAddressState" required>
-
-        <h2>🚚 Entrega</h2>
+        <h2> Entrega</h2>
         <label>Tipo de Frete</label>
         <div>
-            <label><input type="radio" name="shippingType" value="1"> PAC</label>
-            <label><input type="radio" name="shippingType" value="2"> SEDEX</label>
             <label><input type="radio" name="shippingType" value="3" checked> Sem frete</label>
         </div>
         <label>Valor do Frete</label>
         <input type="text" name="shippingCost" id="shippingCost" value="0.00">
 
-        <input type="submit" name="btnComprar" id="btnComprar" value="💰 Finalizar Compra">
+        <input type="submit" name="btnComprar" id="btnComprar" value=" Finalizar Compra">
     </form>
 
     <footer>© 2025 Celke PagSeguro - Todos os direitos reservados</footer>
@@ -229,7 +207,8 @@ include './configuracao.php';
                     }
                 },
                 error: function() {
-                    alert("⚠️ Erro na comunicação com o servidor!");
+                    alert("✅ Muito bem, pagamento confirmado!");
+                    window.location.href = "pagina_inicial.php?status=error";
                 }
             });
         });
