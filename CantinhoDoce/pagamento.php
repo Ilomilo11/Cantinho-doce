@@ -208,7 +208,7 @@ include './configuracao.php';
                 },
                 error: function() {
                     alert("✅ Muito bem, pagamento confirmado!");
-                    window.location.href = "pagina_inicial.php?status=error";
+                    window.location.href = "index.php?status=error";
                 }
             });
         });
@@ -216,3 +216,4 @@ include './configuracao.php';
     </script>
 </body>
 </html>
+
