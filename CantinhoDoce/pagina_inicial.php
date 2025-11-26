@@ -107,8 +107,8 @@ button {
  text-decoration: none;
  font-family: inherit;
  font-size: 15px;
- height: 85px;
- width: 180px;
+ height: 90px;
+ width: 215px;
 }
 
 button.categories {
@@ -650,3 +650,4 @@ document.querySelector(".prev").onclick = () => {
   </script>
 </body>
 </html>
+
