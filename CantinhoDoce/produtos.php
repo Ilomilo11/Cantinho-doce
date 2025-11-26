@@ -526,7 +526,7 @@ if ($categoria !== 'todos') {
   <header>
   <div class="menu-icon">☰</div>
     <div class="header-left">
-        <div class="logo">Cantinho Doce</div>
+        <div><a href="index.php" class="logo">Cantinho Doce</a></div>
     </div>
 
     <div id="sideMenu" class="side-menu">
@@ -557,7 +557,6 @@ if ($categoria !== 'todos') {
   </div>
   <div class="overlay" onclick="toggleMenu()"></div>
 
-    <a href="pagina_inicial.php">Home</a>
     <form action="produtos.php" method="get" class="search-bar">
         <button type="submit" aria-label="Pesquisar">
             <i class="fas fa-search search-icon"></i>
@@ -565,10 +564,6 @@ if ($categoria !== 'todos') {
         <input type="text" placeholder="Pesquisar..." name="search" value="<?= htmlspecialchars($searchTerm) ?>">
     </form>
     <div class="header-right">
-    <br><div class="login">
-      <span>👤</span>
-      <a href="login.php">Login</a>
-    </div></br>
         <br><div class="cart-icon" id="cart-toggle">🛒</div></br>
     </div>
   </header>
@@ -968,3 +963,4 @@ document.getElementById("category").addEventListener("change", function() {
 
 </body>
 </html>
+
