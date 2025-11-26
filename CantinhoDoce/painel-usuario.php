@@ -174,7 +174,7 @@ p {
             <div class="collapse-navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href="pagina_inicial.php">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="painel-produtos.php">Produtos</a>
@@ -213,3 +213,4 @@ p {
     </table>
  </body>
 </html>
+
