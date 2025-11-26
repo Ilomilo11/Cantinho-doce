@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD']  == 'POST'){
 
     if($usuario && password_verify($senha, $usuario['Senha'])){
         $_SESSION['usuario'] = $usuario['Nome'];
-        header('location: painel-usuario.php');
+        header('location: index.php');
     }else{
         echo "<div class=\"alert alert-primary\" role=\"alert\">
   Email ou senha invalidos!
@@ -140,3 +140,4 @@ if ($_SERVER['REQUEST_METHOD']  == 'POST'){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
+
