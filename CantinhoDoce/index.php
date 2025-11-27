@@ -1,10 +1,5 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario'])){
-    header("Location: login.php");
-    exit;
-}
-
 include 'conexao.php';
 ?>
 
@@ -457,9 +452,36 @@ button.categories:active::before {
       <i class="fas fa-search search-icon"></i>
       <input type="text" placeholder="Pesquisar..." name="search">
     </form>
-    <div class="login">
-      <span>👤</span> <p>Bem vindo, <?= $_SESSION['usuario']?>
+    <div class="login" style="position: relative; display: inline-block;">
+
+<?php if (isset($_SESSION['usuario'])): ?>
+
+    <div id="userBox" style="cursor: pointer;">
+        Olá, <?php echo $_SESSION['usuario']; ?>
     </div>
+
+    <div id="logoutMenu" 
+         style="display: none; 
+            position: absolute; 
+            top: 30px; 
+            right: 0; 
+            background: #fff; 
+            border: 1px solid #ccc; 
+            padding: 10px; 
+            border-radius: 5px;
+            background-color: #ffb5b5;
+            color: black;
+            text-decoration: none;">
+        <a href="logout.php" class="btn-login" style="width: 120px; margin: 0;">SAIR</a>
+    </div>
+
+<?php else: ?>
+
+    <a href="login.php">Login</a>
+
+<?php endif; ?>
+
+</div>
     <div class="cart-icon" id="cart-toggle">🛒</div>
   </header>
 
@@ -655,6 +677,24 @@ document.querySelector(".prev").onclick = () => {
     }
 };
 
+document.addEventListener("DOMContentLoaded", function() {
+    const userBox = document.getElementById("userBox");
+    const logoutMenu = document.getElementById("logoutMenu");
+
+    if (userBox) {
+        userBox.addEventListener("click", function() {
+            logoutMenu.style.display = 
+                logoutMenu.style.display === "none" ? "block" : "none";
+        });
+
+        // Fecha o menu ao clicar fora
+        document.addEventListener("click", function(e) {
+            if (!userBox.contains(e.target) && !logoutMenu.contains(e.target)) {
+                logoutMenu.style.display = "none";
+            }
+        });
+    }
+});
 
   </script>
 </body>
