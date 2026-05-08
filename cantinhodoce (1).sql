@@ -16,26 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
---
--- Banco de dados: `cantinhoDoce`
---
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `produtos`
---
-
-CREATE TABLE `produtos` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `preco` decimal(10,2) NOT NULL,
-  `descricao` varchar(300) NOT NULL,
-  `imagem` varchar(255) NOT NULL,
-  `categoria` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+---- Banco de dados: `cantinhoDoce`---- ------------------------------------------------------------ Estrutura para tabela `produtos`--CREATE TABLE `produtos` (  `id` int(11) NOT NULL,  `nome` varchar(100) NOT NULL,  `preco` decimal(10,2) NOT NULL,  `descricao` varchar(300) NOT NULL,  `imagem` varchar(255) NOT NULL,  `categoria` varchar(200) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Despejando dados para a tabela `produtos`
 --
